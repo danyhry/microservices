@@ -1,0 +1,37 @@
+services:
+  account-service:
+    image: "danigri/account-service:s4"
+    container_name: account-service
+    ports:
+      - "8080:8080"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - danyhry
+  loan-service:
+    image: "danigri/loan-service:s4"
+    container_name: loan-service
+    ports:
+      - "8090:8090"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - danyhry
+  card-service:
+    image: "danigri/card-service:s4"
+    container_name: card-service
+    ports:
+      - "9000:9000"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - danyhry
+networks:
+  danyhry:
+    driver: "bridge"
